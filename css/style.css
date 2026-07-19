@@ -1,0 +1,347 @@
+/* ==========================================
+   CSS VARIABLES & RESET
+   ========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --font-primary: 'loretta-display', serif;
+    --font-secondary: 'forma-djr-deck', sans-serif;
+}
+
+body {
+    background-color: #282828;
+    color: #f5f5f5;
+    font-family: var(--font-primary);
+    overflow-x: hidden;
+    transition: background-color 0.4s ease, color 0.4s ease;
+    min-height: 100vh;
+    cursor: none;
+}
+
+/* Modalità invertita (sfondo chiaro, testo scuro) */
+body.inverted {
+    background-color: #f5f5f5;
+    color: #282828;
+}
+
+/* ==========================================
+   CURSORE PERSONALIZZATO
+   ========================================== */
+.custom-cursor {
+    position: fixed;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: width 0.2s ease, height 0.2s ease;
+    will-change: transform;
+    mix-blend-mode: difference;
+    background-color: #f5f5f5;
+}
+
+.custom-cursor.hover-effect {
+    width: 56px;
+    height: 56px;
+}
+
+@media (max-width: 768px) {
+    .custom-cursor { display: none; }
+    body { cursor: auto; }
+}
+
+/* ==========================================
+   LAYOUT PRINCIPALE
+   ========================================== */
+.container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 60px 80px;
+    position: relative;
+}
+
+/* ==========================================
+   HERO SECTION
+   ========================================== */
+.hero-section {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.services-grid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.separator {
+    font-family: var(--font-primary);
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 200;
+    font-style: normal;
+    user-select: none;
+    color: currentColor;
+    transition: color 0.4s ease;
+}
+
+.service-link {
+    text-decoration: none;
+    color: currentColor;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    position: relative;
+    display: inline-block;
+    transition: opacity 0.25s ease;
+    z-index: 10;
+}
+
+.service-link.extra-light {
+    font-weight: 200;
+    font-style: normal;
+}
+
+.service-link.italic {
+    font-weight: 400;
+    font-style: italic;
+}
+
+.service-link span {
+    display: inline-block;
+    transition: transform 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+}
+
+.service-link:hover span {
+    transform: translateY(-5px);
+}
+
+/* ==========================================
+   EXPLORE SECTION
+   ========================================== */
+.explore-section {
+    text-align: center;
+    margin: 60px 0;
+}
+
+.explore-link {
+    font-family: var(--font-primary);
+    font-size: 1.5rem;
+    font-weight: 200;
+    letter-spacing: 0.02em;
+    color: currentColor;
+    text-decoration: none;
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 5px;
+    transition: opacity 0.3s;
+    position: relative;
+}
+
+.explore-link:hover {
+    opacity: 0.7;
+}
+
+/* ==========================================
+   LOGO SECTION - FIORE
+   ========================================== */
+.logo-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px 0;
+}
+
+.logo-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    transition: transform 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    cursor: pointer;
+}
+
+.logo-btn:hover {
+    transform: rotate(180deg);
+}
+
+.logo-image {
+    width: 100px;
+    height: 100px;
+    display: block;
+    transition: filter 0.5s ease;
+}
+
+/* Sfondo scuro (default) → logo CHIARO */
+body:not(.inverted) .logo-image {
+    filter: brightness(0) invert(1);
+}
+
+/* Sfondo chiaro → logo SCURO */
+body.inverted .logo-image {
+    filter: brightness(0) invert(0);
+}
+
+/* ==========================================
+   FOOTER
+   ========================================== */
+.footer {
+    gap: 40px;
+    margin-top: auto;
+    padding-bottom: 0;
+    overflow: visible;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.footer-link {
+    text-decoration: none;
+    color: currentColor;
+    font-family: var(--font-primary);
+    font-size: 1.5rem;
+    font-weight: 200;
+    letter-spacing: 0.02em;
+    transition: opacity 0.3s;
+}
+
+.footer-link:hover {
+    opacity: 0.7;
+}
+
+.big-title {
+    width: 100vw;
+    font-family: var(--font-secondary);
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    overflow: visible;
+    margin-left: -80px;
+    margin-bottom: -60px;
+    padding-bottom: 0;
+    font-size: 12vw;
+    color: currentColor;
+    transition: color 0.4s ease;
+}
+
+.big-title span {
+    display: block;
+    width: 100%;
+}
+
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
+@media (max-width: 768px) {
+    .container {
+        padding: 40px 30px;
+        justify-content: flex-start;
+        gap: 40px;
+    }
+
+    .hero-section {
+        gap: 0;
+        margin-top: 0;
+        text-align: center;
+    }
+
+    .services-grid {
+        flex-direction: column;
+        gap: 0;
+        align-items: center;
+    }
+
+    .service-link {
+        font-size: clamp(2rem, 9vw, 3rem);
+        text-align: center;
+        padding: 0.3rem 0;
+    }
+
+    .separator {
+        display: none;
+    }
+
+    .explore-section {
+        margin: 30px 0;
+        text-align: center;
+    }
+
+    .explore-link {
+        font-size: 1.5rem;
+    }
+
+    .logo-section {
+        margin: 20px 0;
+    }
+
+    .logo-image {
+        width: 100px;
+        height: 100px;
+    }
+
+    .footer-content {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0;
+    }
+
+    .footer-link {
+        font-size: 1.5rem;
+    }
+
+    @media (max-width: 768px) {
+    .big-title {
+        font-size: 13vw;
+        white-space: normal;
+        word-break: break-word;
+        margin-left: -30px;
+        margin-bottom: -40px;
+    }
+}
+}
+/* ==========================================
+   ANIMAZIONI INITIAL LOAD
+   ========================================== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.service-link,
+.explore-link,
+.logo-btn,
+.footer-link,
+.big-title {
+    animation: fadeInUp 0.7s cubic-bezier(0.2, 0.9, 0.4, 1.1) backwards;
+}
+
+.service-link:nth-child(1) { animation-delay: 0.05s; }
+.service-link:nth-child(3) { animation-delay: 0.15s; }
+.service-link:nth-child(4) { animation-delay: 0.25s; }
+.service-link:nth-child(6) { animation-delay: 0.35s; }
+.explore-link { animation-delay: 0.45s; }
+.logo-btn { animation-delay: 0.55s; }
+.big-title { animation-delay: 0.75s; }

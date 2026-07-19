@@ -1,0 +1,135 @@
+
+/* POLAROID */
+.polaroid-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: -3rem 0 1rem;
+}
+
+.polaroid {
+    width: 400px;
+}
+
+.polaroid:hover {
+    transform: rotate(360deg);
+    transition: transform 0.8s ease;
+}
+
+.polaroid img {
+    width: 100%;
+    height: auto;
+    display: block;
+    animation: fadeInUp 0.6s ease forwards;
+}
+/* BIO */
+.about-bio {
+font-family: var(--font-secondary);
+    font-size: 2.5rem;
+    line-height: 1.25;
+    max-width: 100%;
+    margin: 0 0 4rem;
+    font-weight: 400;
+}
+
+/* CONTATTI */
+.contact-info-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: 0.5rem;
+}
+
+.info-heading {
+  font-size: 1.5rem;
+  font-weight: 400;
+  font-style: italic;
+  margin-bottom: 1.2rem;
+  letter-spacing: 0.01em;
+  opacity: 0.85;
+  color: var(--color-text);
+}
+
+.contact-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+.contact-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  opacity: 0.9;
+}
+
+.contact-link,
+.contact-text {
+    font-family: var(--font-secondary);
+  color: inherit;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.contact-link:hover {
+  opacity: 0.7;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.page-header,
+.polaroid-wrapper,
+.about-bio,
+.contact-info-col {
+    opacity: 0;
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.page-header      { animation-delay: 0s; }
+.polaroid-wrapper { animation-delay: 0.15s; }
+.about-bio        { animation-delay: 0.3s; }
+.contact-info-col { animation-delay: 0.45s; }
+
+@media (max-width: 768px) {
+    .polaroid-wrapper {
+        margin: -1rem 0 1.5rem;
+    }
+
+    .polaroid {
+        width: 280px;
+    }
+
+    .about-bio {
+        font-size: 1.2rem;
+    }
+
+    .contact-info-col {
+        margin-top: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .polaroid {
+        width: 220px;
+    }
+
+    .about-bio {
+        font-size: 1rem;
+    }
+}

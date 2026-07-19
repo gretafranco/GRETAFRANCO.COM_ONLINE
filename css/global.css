@@ -1,0 +1,239 @@
+/* ==========================================
+   RESET & SETUP
+   ========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --font-primary: 'loretta-display', serif;
+    --font-secondary: 'forma-djr-deck', sans-serif;
+    --bg-color: #282828;
+    --text-color: #f5f5f5;
+    --footer-opacity: 0.6;
+}
+
+/* Setup per Sticky Footer */
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-primary);
+    overflow-x: hidden;
+    transition: background-color 0.4s ease, color 0.4s ease;
+    cursor: none;
+    
+    /* Layout Flexbox per spingere il footer in fondo */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+body.inverted {
+    --bg-color: #f5f5f5;
+    --text-color: #282828;
+}
+
+/* Cursore custom */
+a, button, .navbar-link, .navbar-logo, [role="button"], input, select, textarea {
+    cursor: none !important;
+}
+
+input, textarea, [contenteditable="true"] {
+    cursor: text !important;
+}
+
+/* ==========================================
+   CONTAINER PRINCIPALE
+   ========================================== */
+.container {
+    padding-top: 40px;
+    padding-left: 80px;
+    padding-right: 80px;
+    padding-bottom: 0; /* Rimosso per non aggiungere spazio sotto il footer */
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 auto; /* Permette al contenuto di espandersi */
+}
+
+/* ==========================================
+   NAVBAR
+   ========================================== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 80px;
+}
+
+.navbar-logo {
+    display: block;
+    width: 60px;
+    height: 60px;
+}
+
+.navbar-logo img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    transition: filter 0.5s ease, transform 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+}
+
+body:not(.inverted) .navbar-logo img { filter: brightness(0) invert(1); }
+body.inverted .navbar-logo img { filter: brightness(0) invert(0); }
+
+.navbar-logo:hover img { transform: rotate(180deg); }
+
+.navbar-links {
+    display: flex;
+    gap: 60px;
+    align-items: center;
+}
+
+.navbar-link {
+    font-family: var(--font-secondary);
+    font-size: 1.5rem;
+    color: currentColor;
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    transition: opacity 0.3s;
+}
+
+.navbar-link:hover { opacity: 0.7; }
+
+/* ==========================================
+   FOOTER (Ancorato e Simmetrico)
+   ========================================== */
+.site-footer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    /* Padding ridotto per stare più in basso, ma con respiro laterale */
+    padding: 30px 80px 40px 80px; 
+    margin-top: auto; /* Forza il footer in fondo al container flex */
+    
+    font-family: var(--font-secondary);
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    color: var(--text-color);
+    opacity: var(--footer-opacity);
+    border-top: none;
+    transition: opacity 0.4s ease, color 0.4s ease;
+}
+
+.footer-contacts {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.footer-contact-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: currentColor;
+    transition: opacity 0.3s;
+}
+
+.footer-contact-item:hover { opacity: 0.5; }
+
+.footer-left, .footer-privacy {
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    color: currentColor;
+}
+
+/* ==========================================
+   CURSORE, MENU MOBILE & HAMBURGER
+   ========================================== */
+.custom-cursor {
+    position: fixed;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    will-change: transform;
+    background-color: var(--text-color);
+    transition: width 0.2s ease, height 0.2s ease, background-color 0.3s ease;
+}
+
+.custom-cursor.hover-effect {
+    width: 56px;
+    height: 56px;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: transparent;
+    border: none;
+    z-index: 1000;
+}
+
+.hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--text-color);
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.mobile-menu {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: var(--bg-color);
+    z-index: 999;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.mobile-menu.open { display: flex; }
+.mobile-menu .navbar-link { font-size: 2rem; }
+
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
+@media (max-width: 768px) {
+    .custom-cursor { display: none; }
+    body, * { cursor: auto !important; }
+
+    .container {
+        padding: 20px 30px 0 30px;
+    }
+
+    .navbar-links { display: none !important; }
+    .hamburger { display: flex; }
+
+    .site-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 30px;
+        padding: 40px 30px;
+    }
+
+    .footer-contacts {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+}

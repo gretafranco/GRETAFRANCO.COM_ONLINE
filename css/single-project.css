@@ -1,0 +1,223 @@
+/* ==========================================
+   CONCEPT TEXT (Responsive)
+   ========================================== */
+.concept-text {
+    font-family: var(--font-secondary);
+    /* Mobile: dimensione leggibile */
+    font-size: 1.6rem; 
+    line-height: 1.3;
+    max-width: 100%;
+    margin: 0 0 2.5rem; 
+    font-weight: 400;
+    word-wrap: break-word;
+    hyphens: auto;
+}
+
+@media (min-width: 768px) {
+    .concept-text {
+        font-size: 2rem;
+        margin-bottom: 3rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .concept-text {
+        font-size: 2.5rem;
+        line-height: 1.25;
+        margin-bottom: 4rem;
+    }
+}
+
+/* ==========================================
+   GRIGLIA IMMAGINI PROGETTO
+   ========================================== */
+.project-gallery {
+    display: grid;
+    grid-template-columns: 1fr; /* Una colonna su mobile */
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+    /* Consente agli elementi di incastrarsi meglio */
+    grid-auto-flow: dense; 
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    background: #ffffff;
+    border-radius: 4px;
+}
+
+/* Formato Orizzontale Largo */
+.gallery-large {
+    grid-column: 1 / -1;
+    aspect-ratio: 16/9;
+    min-height: 300px;
+}
+
+/* Formato Standard (4:3) */
+.gallery-small {
+    aspect-ratio: 4/3;
+}
+
+/* Formato Verticale (2:3 o 3:4) */
+.gallery-vertical {
+    aspect-ratio: 2/3;
+}
+
+@media (min-width: 768px) {
+    .project-gallery {
+        grid-template-columns: repeat(2, 1fr); /* Due colonne su tablet/desktop */
+        
+    }
+    
+    .gallery-large {
+        grid-column: 1 / -1;
+    }
+
+    /* La foto verticale occupa due "righe" di altezza per allinearsi alle piccole */
+    .gallery-vertical {
+        grid-row: span 2;
+    }
+
+    .gallery-large {
+    aspect-ratio: 4/3;
+    min-height: unset;
+  }
+}
+
+/* Contenuti Media */
+.gallery-item img, 
+.gallery-item video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+
+.image-item {
+    cursor: zoom-in;
+}
+
+.image-item:hover img {
+    transform: scale(1.03);
+}
+
+.video-item {
+    cursor: default;
+}
+
+.video-item video {
+    cursor: pointer;
+}
+
+/* ==========================================
+   SEZIONE DETTAGLI PROGETTO
+   ========================================== */
+.project-details {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-top: 4rem;
+    margin-bottom: 4rem; /* <--- AGGIUNGI QUESTO: dà respiro prima del footer */
+}
+
+@media (min-width: 1024px) {
+    .project-details {
+        grid-template-columns: 1fr 1fr;
+        gap: 6rem;
+    }
+}
+
+.project-description {
+    font-family: var(--font-secondary);
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    color: var(--text-color);
+    font-weight: 400;
+}
+
+.project-description strong {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* ==========================================
+   LIGHTBOX
+   ========================================== */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 10, 10, 0.96);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    backdrop-filter: blur(6px);
+}
+
+.lightbox.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.lightbox-img {
+    max-width: 90vw;
+    max-height: 85vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 4px;
+    transform: scale(0.95);
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.lightbox.active .lightbox-img {
+    transform: scale(1);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: #fff;
+    font-size: 40px;
+    cursor: pointer;
+    z-index: 10001;
+}
+
+.lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+    font-size: 30px;
+    padding: 20px;
+    cursor: pointer;
+    user-select: none;
+    opacity: 0.5;
+    transition: opacity 0.3s;
+}
+
+.lightbox-nav:hover { opacity: 1; }
+.lightbox-prev { left: 10px; }
+.lightbox-next { right: 10px; }
+
+.lightbox-counter {
+    position: absolute;
+    bottom: 20px;
+    color: #fff;
+    font-size: 0.9rem;
+    opacity: 0.5;
+}

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Identity & Visual Systems – Greta Franco</title>
+    <link rel="stylesheet" href="https://use.typekit.net/pzu4uyi.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/projects.css">
+    <script>
+        if (localStorage.getItem('gg-theme') === 'light') {
+            document.documentElement.classList.add('inverted-early');
+        }
+    </script>
+</head>
+<body>
+    <div class="custom-cursor"></div>
+
+    <!-- MENU MOBILE OVERLAY — fuori dal main, come nelle altre pagine -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="../index.html" class="navbar-link">home</a>
+        <a href="../about-me.html" class="navbar-link">about me</a>
+        <a href="../get-in-touch.html" class="navbar-link">get in touch</a>
+    </div>
+
+    <main class="container">
+        <nav class="navbar">
+            <a href="../index.html" class="navbar-logo" aria-label="Home">
+                <img src="../assets/logo-gg.svg" alt="GG Logo">
+            </a>
+            <div class="navbar-links">
+                <a href="../index.html" class="navbar-link">home</a>
+                <a href="../about-me.html" class="navbar-link">about me</a>
+                <a href="../get-in-touch.html" class="navbar-link">get in touch</a>
+            </div>
+            <button class="hamburger" aria-label="Menu" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+
+        <header class="page-header">
+            <div class="page-title-row">
+                <span class="page-title-bold">projects</span>
+                <span class="page-title-slash">/</span>
+            </div>
+            <span class="page-title-light">identity &amp; visual systems</span>
+        </header>
+
+        <section class="projects-list">
+            <a href="projects/glimpse.html" class="project-row" data-trail>
+                <span class="project-title">Glimpse</span>
+                <span class="project-year">2026</span>
+                <div class="trail-img"><div class="trail-img-inner" style="background-image:url('../assets/glimpse1.png')"></div></div>
+                <div class="trail-img"><div class="trail-img-inner" style="background-image:url('../assets/glimpse2.png')"></div></div>
+                <div class="trail-img"><div class="trail-img-inner" style="background-image:url('../assets/glimpse3.png')"></div></div>
+                <div class="trail-img"><div class="trail-img-inner" style="background-image:url('../assets/glimpse4.png')"></div></div>
+                <div class="trail-img"><div class="trail-img-inner" style="background-image:url('../assets/glimpse5.png')"></div></div>
+                <div class="trail-img"><div class="trail-img-inner" style="background-image:url('../assets/glimpse6.png')"></div></div>
+            </a>
+
+            <a href="projects/900-nodi.html" class="project-row" data-trail>
+                <span class="project-title">900 nodi</span>
+                <span class="project-year">2025</span>
+                <div class="trail-img"><div class="trail-img-inner" style="background-image:url('../assets/900.png')"></div></div>
+                <div class="trail-img"><div class="trail-img-inner" style="background-image:url('../assets/900nodi1.png')"></div></div>
+                <div class="trail-img"><div class="trail-img-inner" style="background-image:url('../assets/900nodi2.png')"></div></div>
+                <div class="trail-img"><div class="trail-img-inner" style="background-image:url('../assets/900nodi3.png')"></div></div>
+            </a>
+
+            <a href="projects/playing-cards.html" class="project-row" data-trail>
+                <span class="project-title">Playing Cards</span>
+                <span class="project-year">2025</span>
+                <div class="trail-img"><div class="trail-img-inner" style="background-image:url('../assets/carte1.jpg')"></div></div>
+                <div class="trail-img"><div class="trail-img-inner" style="background-image:url('../assets/carte2.jpg')"></div></div>
+                <div class="trail-img"><div class="trail-img-inner" style="background-image:url('../assets/carte3.jpg')"></div></div>
+                <div class="trail-img"><div class="trail-img-inner" style="background-image:url('../assets/carte1.png')"></div></div>
+            </a>
+
+            <a href="projects/ghirigori.html" class="project-row" data-trail>
+                <span class="project-title">ghirigori</span>
+                <span class="project-year">2025</span>
+                <div class="trail-img"><div class="trail-img-inner" style="background-image:url('../assets/ghirigori1.png')"></div></div>
+                <div class="trail-img"><div class="trail-img-inner" style="background-image:url('../assets/ghirigori2.png')"></div></div>
+                <div class="trail-img"><div class="trail-img-inner" style="background-image:url('../assets/ghirigori3.png')"></div></div>
+                <div class="trail-img"><div class="trail-img-inner" style="background-image:url('../assets/ghirigori4.png')"></div></div>
+                <div class="trail-img"><div class="trail-img-inner" style="background-image:url('../assets/ghirigori5.png')"></div></div>
+                <div class="trail-img"><div class="trail-img-inner" style="background-image:url('../assets/ghirigori6.png')"></div></div>
+            </a>
+
+            <a href="projects/designverso.html" class="project-row" data-trail>
+                <span class="project-title">DesignVerso</span>
+                <span class="project-year">2025</span>
+                <div class="trail-img"><div class="trail-img-inner" style="background-image:url('../assets/designverso.png')"></div></div>
+                <div class="trail-img"><div class="trail-img-inner" style="background-image:url('../assets/designverso2.png')"></div></div>
+        </a>
+            <!-- aggiungi gli altri progetti con la stessa struttura -->
+        </section>
+
+        <footer class="site-footer">
+  <span class="footer-left">© 2025 Greta Franco</span>
+
+  <div class="footer-contacts">
+    <a href="mailto:gretaa.franco@gmail.com" class="footer-contact-item">
+      <i class="fa-regular fa-envelope"></i>
+      gretaa.franco@gmail.com
+    </a>
+    <a href="#" class="footer-contact-item">
+      <i class="fa-brands fa-linkedin"></i>
+      Greta Franco
+    </a>
+    <a href="#" class="footer-contact-item">
+      <i class="fa-brands fa-instagram"></i>
+      @gretafranco.design
+    </a>
+  </div>
+
+  <a href="https://www.iubenda.com/privacy-policy/XXXXXXXX" 
+     class="footer-privacy iubenda-white iubenda-embed" 
+     title="Privacy Policy">Privacy Policy</a>
+</footer>
+
+    </main>
+
+    <script src="../js/global.js"></script>
+    <script src="../js/theme-manager.js"></script>
+    <script src="../js/projects.js"></script>
+    <script src="../js/image-trail.js"></script>
+</body>
+</html>

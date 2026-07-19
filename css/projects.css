@@ -1,0 +1,362 @@
+
+
+/* ==========================================
+   CURSORE
+   ========================================== */
+.custom-cursor {
+    position: fixed;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: width 0.2s ease, height 0.2s ease;
+    will-change: transform;
+    mix-blend-mode: difference;
+    background-color: #f5f5f5;
+}
+
+.custom-cursor.hover-effect {
+    width: 56px;
+    height: 56px;
+}
+
+@media (max-width: 768px) {
+    .custom-cursor { display: none; }
+    body { cursor: auto; }
+}
+
+/* ==========================================
+   LAYOUT
+   ========================================== */
+.container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 60px 80px;
+    position: relative;
+}
+
+/* ==========================================
+   NAVBAR
+   ========================================== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 80px;
+}
+
+.navbar-logo {
+    display: block;
+    width: 60px;
+    height: 60px;
+}
+
+.navbar-logo img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    filter: brightness(0) invert(1);
+    transition: transform 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+}
+
+.navbar-logo:hover img {
+    transform: rotate(180deg);
+}
+
+.navbar-links {
+    display: flex;
+    gap: 60px;
+    align-items: center;
+}
+
+.navbar-link {
+    font-family: var(--font-secondary);
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--color-text);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    transition: opacity 0.3s;
+}
+
+/* ==========================================
+   HERO / PAGE TITLE
+   ========================================== */
+.page-header {
+    margin-bottom: 70px;
+}
+
+.page-title-row {
+    display: flex;
+    align-items: baseline;
+    gap: 24px;
+    line-height: 1;
+}
+
+.page-title-bold {
+    font-family: var(--font-secondary);
+    font-weight: 700;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    letter-spacing: -0.03em;
+    color: var(--color-text);
+}
+
+.page-title-slash {
+    font-family: var(--font-primary);
+    font-weight: 200;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    letter-spacing: -0.02em;
+}
+
+.page-title-light {
+    font-family: var(--font-primary);
+    font-weight: 200;
+    font-style: normal;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    letter-spacing: -0.02em;
+    color: var(--color-text);
+    display: block;
+    margin-top: -8px;
+}
+
+.page-title-italic {
+    font-family: var(--font-primary);
+    font-weight: 200;
+    font-style: italic;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    letter-spacing: -0.02em;
+    color: var(--color-text);
+    display: block;
+    margin-top: -8px;
+}
+
+/* ==========================================
+   PROJECTS LIST (STILE SCREENSHOT)
+   ========================================== */
+.projects-list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.project-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 25px 0;
+    text-decoration: none;
+    color: var(--color-text);        /* ← assicurati sia qui */
+    border-bottom: 1px solid rgba(245, 245, 245, 0.8);
+    transition: opacity 0.3s ease;
+    position: relative;
+    overflow: visible;
+    z-index: 0;
+}
+
+/* Rimuove il bordo dall'ultimo elemento per pulizia, 
+   o lascialo se vuoi chiudere la lista come nello screen */
+/* .project-row:last-child { border-bottom: none; } */
+
+.project-title {
+    font-family: var(--font-secondary);
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: var(--color-text);
+    line-height: 1;
+}
+
+.project-year {
+    font-family: var(--font-secondary);
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--color-text);
+    margin-bottom: 5px; /* Allineamento ottico con la base del testo grande */
+}
+
+/* Effetto Hover */
+.project-row:hover {
+    opacity: 0.6;
+}
+
+/* Modifica specifica per Tema Chiaro */
+body.inverted .project-row {
+    border-bottom: 1px solid rgba(40, 40, 40, 0.8);
+}
+
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
+@media (max-width: 768px) {
+    .project-row {
+        padding: 18px 0;
+    }
+    .project-year {
+        font-size: 1rem;
+    }
+}
+/* ==========================================
+   TEMA CHIARO - override
+   ========================================== */
+body.inverted {
+    --color-bg: #f5f5f5;
+    --color-text: #282828;
+}
+
+body.inverted .projects-grid::-webkit-scrollbar-track {
+    background: rgba(40, 40, 40, 0.1);
+}
+
+body.inverted .projects-grid::-webkit-scrollbar-thumb {
+    background: rgba(40, 40, 40, 0.5);
+}
+
+body.inverted .projects-grid::-webkit-scrollbar-thumb:hover {
+    background: rgba(40, 40, 40, 0.8);
+}
+
+/*image trial
+/* ==========================================
+   IMAGE TRAIL
+   ========================================== */
+.project-row {
+  position: relative;   /* già ce l'hai, assicurati sia presente */
+  overflow: visible;    /* fondamentale: le immagini escono dalla riga */
+  z-index: 0;
+}
+
+/* quando la riga è in hover, sale sopra le altre */
+.project-row:hover {
+  z-index: 100;
+  opacity: 1; /* sovrascrive il tuo opacity:0.6 — gestiamo noi l'effetto */
+}
+
+.trail-img {
+  width: 200px;
+  aspect-ratio: 1.2;
+  border-radius: 12px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  overflow: hidden;
+  pointer-events: none;
+  will-change: transform, opacity;
+  z-index: 200;
+}
+
+.trail-img-inner {
+  width: calc(100% + 20px);
+  height: calc(100% + 20px);
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  top: -10px;
+  left: -10px;
+}
+
+
+
+
+/* ==========================================
+   ANIMAZIONI INITIAL LOAD
+   ========================================== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.navbar {
+    animation: fadeInUp 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1) 0.05s backwards;
+}
+
+.page-title-row {
+    animation: fadeInUp 0.7s cubic-bezier(0.2, 0.9, 0.4, 1.1) 0.15s backwards;
+}
+
+.page-title-light {
+    animation: fadeInUp 0.7s cubic-bezier(0.2, 0.9, 0.4, 1.1) 0.25s backwards;
+}
+
+/* Ogni riga progetto entra in sequenza dopo il titolo */
+.project-row:nth-child(1) { animation: fadeInUp 0.7s cubic-bezier(0.2, 0.9, 0.4, 1.1) 0.35s backwards; }
+.project-row:nth-child(2) { animation: fadeInUp 0.7s cubic-bezier(0.2, 0.9, 0.4, 1.1) 0.45s backwards; }
+.project-row:nth-child(3) { animation: fadeInUp 0.7s cubic-bezier(0.2, 0.9, 0.4, 1.1) 0.55s backwards; }
+.project-row:nth-child(4) { animation: fadeInUp 0.7s cubic-bezier(0.2, 0.9, 0.4, 1.1) 0.65s backwards; }
+.project-row:nth-child(5) { animation: fadeInUp 0.7s cubic-bezier(0.2, 0.9, 0.4, 1.1) 0.75s backwards; }
+.project-row:nth-child(6) { animation: fadeInUp 0.7s cubic-bezier(0.2, 0.9, 0.4, 1.1) 0.85s backwards; }
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
+@media (max-width: 768px) {
+    .container {
+        padding: 40px 30px;
+    }
+
+    .navbar {
+        margin-bottom: 50px;
+    }
+
+    .navbar-links {
+        gap: 30px;
+    }
+
+    .navbar-link {
+        font-size: 0.85rem;
+    }
+
+    .project-col {
+        width: calc(50% - 12px);
+        min-width: 200px;
+    }
+
+    .page-header {
+        margin-bottom: 50px;
+    }
+    
+    .projects-grid::-webkit-scrollbar {
+        height: 3px;
+    }
+    .project-title {
+    font-size: 1.4rem;
+  }
+
+  .project-year {
+    font-size: 0.85rem;
+  }
+
+  .page-title-light,
+  .page-title-italic {
+    font-size: clamp(1.8rem, 8vw, 2.5rem);
+    line-height: 1.1;
+    margin-top: -4px;
+  }
+
+  .page-title-bold {
+    font-size: clamp(1.8rem, 8vw, 2.5rem);
+  }
+
+  .page-title-slash {
+    font-size: clamp(1.8rem, 8vw, 2.5rem);
+  }
+
+}
+
+@media (max-width: 480px) {
+    .project-col {
+        width: calc(100% - 0px);
+        min-width: auto;
+    }
+    .project-title {
+    font-size: 1.1rem;
+  }
+}

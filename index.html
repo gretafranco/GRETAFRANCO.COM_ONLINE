@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Home – Greta Franco</title>
+    
+    <!-- Adobe Fonts -->
+    <link rel="stylesheet" href="https://use.typekit.net/pzu4uyi.css">
+    
+    <!-- GSAP per animazioni fluide -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/global.css">   <!-- AGGIUNGI -->
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        if (localStorage.getItem('gg-theme') === 'light') {
+            document.documentElement.classList.add('inverted-early');
+        }
+    </script>
+</head>
+<body>
+    <!-- CURSOR PERSONALIZZATO -->
+    <div class="custom-cursor"></div>
+    
+    <!-- Main Content -->
+    <main class="container">
+        <header class="hero-section">
+            <div class="services-grid">
+                <a href="pages/identity-visual-systems.html" class="service-link extra-light">
+                    <span>identity & visual systems</span>
+                </a>
+                <span class="separator">/</span>
+                <a href="pages/web-design.html" class="service-link italic">
+                    <span>web design</span>
+                </a>
+            </div>
+            
+            <div class="services-grid">
+                <a href="pages/motion-animation.html" class="service-link italic">
+                    <span>motion design</span>
+                </a>
+                <span class="separator">/</span>
+                <a href="pages/editorial-typography.html" class="service-link extra-light">
+                    <span>editorial & typography</span>
+                </a>
+            </div>
+        </header>
+        
+        <div class="explore-section">
+             <a href="https://www.instagram.com/gretafranco.design?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="explore-link">@gretafranco.design</a>
+        </div>
+        
+        <div class="logo-section">
+            <button class="logo-btn" id="flowerToggle" aria-label="Toggle theme">
+                <img src="assets/logo-gg.svg" alt="GG Logo" class="logo-image">
+            </button>
+        </div>
+        
+        <footer class="footer">
+            <div class="footer-content">
+                <a href="get-in-touch.html" class="footer-link regular">get in touch!</a>
+                <a href="about-me.html" class="footer-link regular">about me</a>
+            </div>
+            
+            <div class="big-title">
+                <span>LetYourIdeasBloom.</span>
+            </div>
+        </footer>
+    </main>
+    
+    <script src="js/global.js"></script>
+<script src="js/theme-manager.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
